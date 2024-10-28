@@ -1,0 +1,33 @@
+<odoo>
+ <record id="purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+                <form class="o_purchase_order">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    <div class="oe_title">
+                        <span class="o_form_label" >Two Level Approval</span>                     
+                    </div>
+                    <sheet>
+                        <group>
+                            <field name="minimum_amount" />
+                            <field name="buyer_always_in_cc" />                       
+                        </group>
+                        <notebook>
+                        <page string="Approval Details" name="approval_details">           
+                            <field name="approval_details_tree"  mode="tree,kanban" >
+                                <tree string="Approval Details" >
+                                    <field name="level" />
+                                    <field name="approve_by" />
+                                </tree>
+                                <form string="approval_details_form">
+                                    <field name="level" />
+                                    <field name="approve_by" />
+                                </form>
+                        </page>
+                        </notebook>
+                    </sheet>
+            </field>       
+        </record>     
+</odoo>
